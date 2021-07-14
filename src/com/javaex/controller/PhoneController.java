@@ -5,14 +5,16 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javaex.dao.PhoneDao;
+import com.javaex.util.WebUtil;
 import com.javaex.vo.PersonVo;
+
+
 
 @WebServlet("/pbc")
 public class PhoneController extends HttpServlet {
@@ -56,8 +58,11 @@ public class PhoneController extends HttpServlet {
 		System.out.println("[글쓰기폼]");
 		
 		//writeForm.jsp 포워드 --> 데이터 x
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/writeForm.jsp");
-		rd.forward(request, response);
+//		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/writeForm.jsp");
+//		rd.forward(request, response);
+	
+		WebUtil.forward(request, response, "/WEB-INF/writeForm.jsp");
+	
 	}else if("insert".equals(action)) {
 		System.out.println("[저장]");
 	
